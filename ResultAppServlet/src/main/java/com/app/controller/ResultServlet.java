@@ -27,14 +27,14 @@ public class ResultServlet extends HttpServlet {
 	    PrintWriter pw = response.getWriter();
 
 	    try {
-	        String prnParam = request.getParameter("textPrn");
+	        String prnNo = request.getParameter("textPrn");
 
-	        if (prnParam == null || prnParam.trim().isEmpty()) {
+	        if (prnNo == null || prnNo.trim().isEmpty()) {
 	            response.sendRedirect("details.html");
 	            return;
 	        }
 
-	        int prn = Integer.parseInt(prnParam.trim());
+	        int prn = Integer.parseInt(prnNo.trim());
 	        Student s = StudentDao.getStudentByPrn(prn);
 
 	        if (s == null) {
